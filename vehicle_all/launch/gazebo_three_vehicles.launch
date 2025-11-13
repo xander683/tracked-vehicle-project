@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="world" default="empty.world"/>
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <!-- Launch Gazebo empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- Vehicle 1 - 白色轮子（第一辆） -->
+  <group ns="vehicle_1">
+    <!-- Load robot description -->
+    <param name="robot_description" textfile="$(find vehicle_all)/urdf/vehicle_all_white.urdf" />
+    
+    <!-- Robot state publisher with tf prefix -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <param name="tf_prefix" value="vehicle_1" />
+    </node>
+    
+    <!-- Spawn robot in Gazebo -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model vehicle_1 -x 0.0 -y 0 -z 0.15 -param robot_description"/>
+  </group>
+
+  <!-- Vehicle 2 - 黑色轮子（第二辆） -->
+  <group ns="vehicle_2">
+    <!-- Load robot description -->
+    <param name="robot_description" textfile="$(find vehicle_all)/urdf/vehicle_all_black.urdf" />
+    
+    <!-- Robot state publisher with tf prefix -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <param name="tf_prefix" value="vehicle_2" />
+    </node>
+    
+    <!-- Spawn robot in Gazebo -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model vehicle_2 -x -2.0 -y 0 -z 0.15 -param robot_description"/>
+  </group>
+
+  <!-- Vehicle 3 - 灰色轮子（第三辆） -->
+  <group ns="vehicle_3">
+    <!-- Load robot description -->
+    <param name="robot_description" textfile="$(find vehicle_all)/urdf/vehicle_all_grey.urdf" />
+    
+    <!-- Robot state publisher with tf prefix -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <param name="tf_prefix" value="vehicle_3" />
+    </node>
+    
+    <!-- Spawn robot in Gazebo -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model vehicle_3 -x -4.0 -y 0 -z 0.15 -param robot_description"/>
+  </group>
+
+</launch>
+

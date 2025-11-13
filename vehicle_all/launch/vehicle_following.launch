@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- 跟随参数 -->
+  <arg name="desired_distance" default="0.2" doc="期望保持的距离（米）"/>
+  
+  <!-- 车辆2跟随车辆1 -->
+  <node name="vehicle_2_follower" pkg="vehicle_all" type="vehicle_follower.py" output="screen" respawn="true">
+    <param name="follower_id" value="2"/>
+    <param name="leader_id" value="1"/>
+    <param name="desired_distance" value="$(arg desired_distance)"/>
+  </node>
+  
+  <!-- 车辆3跟随车辆2 -->
+  <node name="vehicle_3_follower" pkg="vehicle_all" type="vehicle_follower.py" output="screen" respawn="true">
+    <param name="follower_id" value="3"/>
+    <param name="leader_id" value="2"/>
+    <param name="desired_distance" value="$(arg desired_distance)"/>
+  </node>
+
+</launch>
+

@@ -12,3 +12,10 @@ foreach(dir config launch meshes urdf)
 	install(DIRECTORY ${dir}/
 		DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach(dir)
+
+# Install scripts
+install(PROGRAMS
+  scripts/vehicle_follower.py
+  scripts/test_vehicle_control.sh
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/scripts
+)
