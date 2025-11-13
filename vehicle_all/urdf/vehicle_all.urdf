@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="vehicle_all">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="75.985" />
+      <inertia
+        ixx="1.5666"
+        ixy="-0.0063371"
+        ixz="-0.019931"
+        iyy="4.012"
+        iyz="0.0003888"
+        izz="4.7843" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.4"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.5 0.3 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel1_Link">
+    <inertial>
+      <origin
+        xyz="1.249E-08 -0.031581 7.4203E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.78706" />
+      <inertia
+        ixx="0.0021017"
+        ixy="-3.9045E-10"
+        ixz="1.0314E-10"
+        iyy="0.0034145"
+        iyz="-1.9413E-06"
+        izz="0.0021023" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.58431 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.42 0.366 0.03"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel1_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel2_Link">
+    <inertial>
+      <origin
+        xyz="3.8164E-15 -0.075 1.4433E-15"
+        rpy="0 0 0" />
+      <mass
+        value="1.1022" />
+      <inertia
+        ixx="0.004462"
+        ixy="-5.8667E-19"
+        ixz="-3.9762E-19"
+        iyy="0.0031755"
+        iyz="-1.015E-18"
+        izz="0.004462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.21569 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.13 0.425 -0.032"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel2_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel3_Link">
+    <inertial>
+      <origin
+        xyz="1.4932E-14 -0.075 2.2204E-15"
+        rpy="0 0 0" />
+      <mass
+        value="1.1022" />
+      <inertia
+        ixx="0.004462"
+        ixy="-2.1041E-20"
+        ixz="-6.2154E-19"
+        iyy="0.0031755"
+        iyz="2.1064E-18"
+        izz="0.004462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.21569 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel3_joint"
+    type="continuous">
+    <origin
+      xyz="0.13 0.425 -0.032"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel3_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel4_Link">
+    <inertial>
+      <origin
+        xyz="-6.9944E-15 -0.075 2.3315E-15"
+        rpy="0 0 0" />
+      <mass
+        value="1.1022" />
+      <inertia
+        ixx="0.004462"
+        ixy="2.5768E-18"
+        ixz="-3.6642E-19"
+        iyy="0.0031755"
+        iyz="1.2893E-18"
+        izz="0.004462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel4_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.21569 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel4_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel4_joint"
+    type="continuous">
+    <origin
+      xyz="0.39 0.425 -0.032"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel4_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel5_Link">
+    <inertial>
+      <origin
+        xyz="1.3323E-15 -0.019999 -7.7716E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.33834" />
+      <inertia
+        ixx="0.00052483"
+        ixy="2.5902E-20"
+        ixz="4.9142E-19"
+        iyy="0.0009698"
+        iyz="7.5057E-22"
+        izz="0.00052483" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel5_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.58431 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel5_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel5_jointk"
+    type="continuous">
+    <origin
+      xyz="0.62093 0.37 0.055"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel5_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel6_Link">
+    <inertial>
+      <origin
+        xyz="8.8818E-16 0.019999 2.2204E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.33834" />
+      <inertia
+        ixx="0.00052483"
+        ixy="1.4066E-19"
+        ixz="3.0058E-19"
+        iyy="0.0009698"
+        iyz="-5.8602E-19"
+        izz="0.00052483" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel6_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.58431 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel6_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel6_joint"
+    type="continuous">
+    <origin
+      xyz="0.62093 -0.37 0.055"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel6_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel7_Link">
+    <inertial>
+      <origin
+        xyz="1.1657E-14 0.075 2.5535E-15"
+        rpy="0 0 0" />
+      <mass
+        value="1.1022" />
+      <inertia
+        ixx="0.004462"
+        ixy="2.1354E-18"
+        ixz="1.2535E-19"
+        iyy="0.0031755"
+        iyz="-6.1694E-19"
+        izz="0.004462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel7_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.21569 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel7_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel7_joint"
+    type="continuous">
+    <origin
+      xyz="0.39 -0.425 -0.032"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel7_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel8_Link">
+    <inertial>
+      <origin
+        xyz="-2.9421E-15 0.075 2.3315E-15"
+        rpy="0 0 0" />
+      <mass
+        value="1.1022" />
+      <inertia
+        ixx="0.004462"
+        ixy="-8.7001E-19"
+        ixz="3.4482E-20"
+        iyy="0.0031755"
+        iyz="3.386E-19"
+        izz="0.004462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel8_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.21569 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel8_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel8_joint"
+    type="continuous">
+    <origin
+      xyz="0.13 -0.425 -0.032"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel8_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel9_Link">
+    <inertial>
+      <origin
+        xyz="1.0381E-08 0.075 6.5657E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.1155" />
+      <inertia
+        ixx="0.0044652"
+        ixy="-4.6244E-19"
+        ixz="2.0986E-10"
+        iyy="0.0031779"
+        iyz="5.5756E-19"
+        izz="0.0044665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel9_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.18039 0.18039 0.18039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel9_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel9_joint"
+    type="continuous">
+    <origin
+      xyz="-0.13 -0.425 -0.032"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel9_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="wheel10_Link">
+    <inertial>
+      <origin
+        xyz="7.4203E-05 0.031581 -1.0974E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.78706" />
+      <inertia
+        ixx="0.0021023"
+        ixy="1.9413E-06"
+        ixz="-8.0629E-11"
+        iyy="0.0034145"
+        iyz="-2.2342E-10"
+        izz="0.0021017" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel10_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.81176 0.58431 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/wheel10_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel510_joint"
+    type="continuous">
+    <origin
+      xyz="-0.42 -0.366 0.03"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel10_Link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit effort="0.0" lower="-1e+16" upper="1e+16" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link
+    name="radar_Link">
+    <inertial>
+      <origin
+        xyz="1.2123E-05 -5.9952E-15 0.076677"
+        rpy="0 0 0" />
+      <mass
+        value="3.6018" />
+      <inertia
+        ixx="0.013262"
+        ixy="2.5338E-18"
+        ixz="9.7104E-08"
+        iyy="0.013262"
+        iyz="1.4167E-18"
+        izz="0.013876" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/radar_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/radar_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="radar_joint"
+    type="fixed">
+    <origin
+      xyz="0.0225 0.01 0.541"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="radar_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="GPS_Link">
+    <inertial>
+      <origin
+        xyz="-0.0057511 -1.1102E-15 -0.019587"
+        rpy="0 0 0" />
+      <mass
+        value="2.1661" />
+      <inertia
+        ixx="0.011976"
+        ixy="-9.9705E-18"
+        ixz="0.00081192"
+        iyy="0.0094436"
+        iyz="1.8695E-18"
+        izz="0.017601" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/GPS_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/GPS_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="GPS_joint"
+    type="fixed">
+    <origin
+      xyz="-0.32066 0.0030057 0.436"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="GPS_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="imu_Link">
+    <inertial>
+      <origin
+        xyz="-0.0054677 4.6629E-15 -0.024999"
+        rpy="0 0 0" />
+      <mass
+        value="2.07" />
+      <inertia
+        ixx="0.018699"
+        ixy="-2.1525E-17"
+        ixz="2.518E-06"
+        iyy="0.017436"
+        iyz="2.5453E-18"
+        izz="0.034625" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/imu_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/imu_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="-0.37066 0.0030057 0.386"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="control_Link">
+    <inertial>
+      <origin
+        xyz="-0.0096163 -4.885E-15 -0.049998"
+        rpy="0 0 0" />
+      <mass
+        value="3.984" />
+      <inertia
+        ixx="0.10849"
+        ixy="-4.4802E-17"
+        ixz="4.6873E-06"
+        iyy="0.043019"
+        iyz="-5.0038E-17"
+        izz="0.13814" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/control_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vehicle_all/meshes/control_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="control_joint"
+    type="fixed">
+    <origin
+      xyz="-0.37066 0.0030057 0.336"
+      rpy="0 -0.00015811 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="control_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <!-- Gazebo properties for base_link -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Grey</material>
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <!-- Gazebo properties for wheels -->
+  <gazebo reference="wheel1_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Middle drive wheels - with colored stripes for visibility -->
+  <gazebo reference="wheel2_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel3_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="wheel4_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="wheel5_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel6_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Middle drive wheels - with colored stripes for visibility -->
+  <gazebo reference="wheel7_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="wheel8_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="wheel9_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel10_Link">
+    <mu1>500.0</mu1>
+    <mu2>300.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.01</maxVel>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Gazebo plugins -->
+
+  <!-- Wheel tracked vehicle plugin -->
+  <gazebo>
+    <plugin name="wheel_tracked_vehicle_controller" filename="libWheelTrackedVehiclePlugin_tr.so">
+      <!-- Left side wheels (y > 0) -->
+      <left_joint>wheel2_joint</left_joint>
+      <left_joint>wheel3_joint</left_joint>
+      <left_joint>wheel4_joint</left_joint>
+      <!-- Right side wheels (y < 0) -->
+      <right_joint>wheel7_joint</right_joint>
+      <right_joint>wheel8_joint</right_joint>
+      <right_joint>wheel9_joint</right_joint>
+      <track_mu>2.0</track_mu>
+      <track_mu2>1.5</track_mu2>
+    </plugin>
+  </gazebo>
+
+  <!-- ROS tracked drive plugin -->
+  <gazebo>
+    <plugin name="tracked_drive" filename="libgazebo_ros_tracked_drive_tr.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <pubTopic>/cmd_vel_twist</pubTopic>
+      <legacyMode>1</legacyMode>
+    </plugin>
+  </gazebo>
+
+  <!-- Ground truth publisher -->
+  <gazebo>
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d_tr.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>ground_truth/state</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+    </plugin>
+  </gazebo>
+
+  <!-- Joint state publisher from Gazebo -->
+  <gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>joint_states:=joint_states</remapping>
+      </ros>
+      <update_rate>50</update_rate>
+      <joint_name>wheel1_joint</joint_name>
+      <joint_name>wheel2_joint</joint_name>
+      <joint_name>wheel3_joint</joint_name>
+      <joint_name>wheel4_joint</joint_name>
+      <joint_name>wheel5_jointk</joint_name>
+      <joint_name>wheel6_joint</joint_name>
+      <joint_name>wheel7_joint</joint_name>
+      <joint_name>wheel8_joint</joint_name>
+      <joint_name>wheel9_joint</joint_name>
+      <joint_name>wheel510_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+</robot>
