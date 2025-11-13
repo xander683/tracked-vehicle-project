@@ -15,6 +15,9 @@ for vehicle_all robot</p>
   <depend>rviz</depend>
   <depend>joint_state_publisher_gui</depend>
   <depend>gazebo</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf</depend>
   <export>
     <architecture_independent />
   </export>

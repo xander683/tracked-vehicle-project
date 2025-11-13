@@ -10,12 +10,57 @@
 
 ## 启动仿真模型
 
-### 启动 Gazebo 仿真
+### 启动单个车辆仿真
 
-在终端中执行以下命令启动 `vehicle_all` 模型：
+在终端中执行以下命令启动单个 `vehicle_all` 模型：
 
 ```bash
 roslaunch vehicle_all gazebo.launch
+```
+
+### 启动三个车辆仿真
+
+在终端中执行以下命令同时启动三个履带车：
+
+```bash
+roslaunch vehicle_all gazebo_three_vehicles.launch
+```
+
+三个车辆将分别命名为 `vehicle_1`、`vehicle_2` 和 `vehicle_3`，初始位置分别为：
+- `vehicle_1`: (0, 0, 0.5)
+- `vehicle_2`: (2.0, 0, 0.5)
+- `vehicle_3`: (-2.0, 0, 0.5)
+
+每个车辆都有独立的命名空间，可以通过以下话题控制：
+- `/vehicle_1/cmd_vel` - 控制车辆1
+- `/vehicle_2/cmd_vel` - 控制车辆2
+- `/vehicle_3/cmd_vel` - 控制车辆3
+
+### 启动三个车辆仿真（带跟随功能）
+
+在终端中执行以下命令启动三个履带车并启用跟随功能：
+
+```bash
+roslaunch vehicle_all gazebo_three_vehicles_with_following.launch
+```
+
+**跟随功能说明**：
+- 车辆2会自动跟随车辆1，保持0.2米的距离
+- 车辆3会自动跟随车辆2，保持0.2米的距离
+- 就像火车一样，后面的车辆会复刻前面车辆的轨迹
+- 您只需要控制车辆1，车辆2和车辆3会自动跟随
+
+**启动参数**：
+- `desired_distance`: 期望保持的距离（默认: 0.2米）
+- `enable_following`: 是否启用跟随功能（默认: true）
+
+**示例**：
+```bash
+# 自定义跟随距离为0.5米
+roslaunch vehicle_all gazebo_three_vehicles_with_following.launch desired_distance:=0.5
+
+# 启动三个车辆但不启用跟随功能
+roslaunch vehicle_all gazebo_three_vehicles_with_following.launch enable_following:=false
 ```
 
 #### 启动参数说明
@@ -119,9 +164,20 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py _key_timeout:=0.6
 
 # 发布到不同的话题
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=my_cmd_vel
+
+# 控制三个车辆中的特定车辆（例如车辆1）
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vehicle_1/cmd_vel
+
+# 控制车辆2
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vehicle_2/cmd_vel
+
+# 控制车辆3
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vehicle_3/cmd_vel
 ```
 
 ## 完整使用流程
+
+### 单个车辆控制
 
 1. **启动 Gazebo 仿真**（终端 1）：
    ```bash
@@ -137,14 +193,64 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=my_cmd_vel
    - 在键盘控制终端中，使用上述按键控制机器人移动
    - 确保键盘控制终端处于活动状态（点击终端窗口）
 
+### 三个车辆控制
+
+#### 方式1：手动控制所有车辆
+
+1. **启动 Gazebo 仿真（三个车辆）**（终端 1）：
+   ```bash
+   roslaunch vehicle_all gazebo_three_vehicles.launch
+   ```
+
+2. **启动键盘控制（控制车辆1）**（终端 2）：
+   ```bash
+   rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vehicle_1/cmd_vel
+   ```
+
+3. **启动键盘控制（控制车辆2）**（终端 3，可选）：
+   ```bash
+   rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vehicle_2/cmd_vel
+   ```
+
+4. **启动键盘控制（控制车辆3）**（终端 4，可选）：
+   ```bash
+   rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vehicle_3/cmd_vel
+   ```
+
+#### 方式2：使用跟随功能（推荐）
+
+1. **启动 Gazebo 仿真（三个车辆 + 跟随功能）**（终端 1）：
+   ```bash
+   roslaunch vehicle_all gazebo_three_vehicles_with_following.launch
+   ```
+
+2. **启动键盘控制（只控制车辆1）**（终端 2）：
+   ```bash
+   rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/vehicle_1/cmd_vel
+   ```
+
+3. **观察跟随效果**：
+   - 车辆1会响应您的键盘控制
+   - 车辆2会自动跟随车辆1，保持0.2米距离
+   - 车辆3会自动跟随车辆2，保持0.2米距离
+   - 就像火车一样，后面的车辆会复刻前面车辆的轨迹
+
+**注意**：使用跟随功能时，您只需要控制车辆1，车辆2和车辆3会自动跟随。如果需要单独控制某个车辆，可以禁用跟随功能或直接发布命令到相应的话题。
+
 ## 项目结构
 
 ```
 src/
 ├── vehicle_all/              # 车辆模型包
 │   ├── launch/
-│   │   ├── gazebo.launch    # Gazebo 仿真启动文件
-│   │   └── display.launch   # RViz 显示启动文件
+│   │   ├── gazebo.launch                           # Gazebo 仿真启动文件（单个车辆）
+│   │   ├── gazebo_three_vehicles.launch            # Gazebo 仿真启动文件（三个车辆）
+│   │   ├── gazebo_three_vehicles_with_following.launch  # Gazebo 仿真启动文件（三个车辆+跟随功能）
+│   │   ├── vehicle_following.launch                # 车辆跟随节点启动文件
+│   │   └── display.launch                          # RViz 显示启动文件
+│   ├── scripts/
+│   │   ├── vehicle_follower.py                     # 车辆跟随节点（Python）
+│   │   └── test_vehicle_control.sh                 # 车辆控制测试脚本
 │   ├── urdf/                # URDF 模型文件
 │   └── meshes/              # 3D 模型文件
 ├── tracked_vehicle_demo/     # 履带车辆演示包
