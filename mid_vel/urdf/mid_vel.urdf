@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mid_vel">
+
+  <link name="footbase_link"/>
+
+
+  <joint name="footbase_to_base_joint" type="fixed">
+    <parent link="footbase_link"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.03" rpy="0 0 0"/>
+  </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.026311 -0.0029309 0.037082"
+        rpy="0 0 0" />
+      <mass
+        value="2.0626" />
+      <inertia
+        ixx="0.0036728"
+        ixy="-1.6216E-05"
+        ixz="9.1245E-06"
+        iyy="0.0092421"
+        iyz="8.7861E-06"
+        izz="0.010609" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wh1_Link">
+    <inertial>
+      <origin
+        xyz="-9.7145E-16 1.8735E-16 0.019953"
+        rpy="0 0 0" />
+      <mass
+        value="0.024669" />
+      <inertia
+        ixx="2.3649E-06"
+        ixy="-2.0339E-20"
+        ixz="1.2554E-22"
+        iyy="2.3649E-06"
+        iyz="6.2244E-22"
+        izz="2.4669E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.090325 0.12486 0.0105"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wh2_Link">
+    <inertial>
+      <origin
+        xyz="9.0206E-16 8.8818E-16 0.017031"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="3.8073E-22"
+        ixz="1.5306E-21"
+        iyy="2.8962E-06"
+        iyz="-3.4325E-23"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.046146 0.12486 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wh3_Link">
+    <inertial>
+      <origin
+        xyz="9.0379E-16 8.743E-16 0.017031"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="4.4193E-22"
+        ixz="1.5609E-21"
+        iyy="2.8962E-06"
+        iyz="-5.2332E-23"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh3_joint"
+    type="continuous">
+    <origin
+      xyz="-0.001146 0.12486 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wh4_Link">
+    <inertial>
+      <origin
+        xyz="9.3675E-16 8.743E-16 0.015531"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="4.4405E-22"
+        ixz="1.5378E-21"
+        iyy="2.8962E-06"
+        iyz="-4.9563E-23"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh4_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh4_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh4_joint"
+    type="continuous">
+    <origin
+      xyz="0.043854 0.12486 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh4_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wh5_Link">
+    <inertial>
+      <origin
+        xyz="9.4369E-16 8.743E-16 0.015531"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="3.9252E-22"
+        ixz="1.5289E-21"
+        iyy="2.8962E-06"
+        iyz="-1.4018E-23"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh5_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh5_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh5_joint"
+    type="continuous">
+    <origin
+      xyz="0.088854 0.12486 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh5_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wh6_Link">
+    <inertial>
+      <origin
+        xyz="2.8186E-12 7.0472E-12 0.013031"
+        rpy="0 0 0" />
+      <mass
+        value="0.018562" />
+      <inertia
+        ixx="1.5501E-06"
+        ixy="2.6187E-16"
+        ixz="-5.1823E-16"
+        iyy="1.5501E-06"
+        iyz="-1.2921E-15"
+        izz="2.8242E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh6_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh6_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh6_joint"
+    type="continuous">
+    <origin
+      xyz="0.13217 0.12466 0.0105"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh6_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wh7_Link">
+    <inertial>
+      <origin
+        xyz="1.0963E-15 1.8041E-16 -0.019945"
+        rpy="0 0 0" />
+      <mass
+        value="0.024652" />
+      <inertia
+        ixx="2.3643E-06"
+        ixy="1.7908E-20"
+        ixz="2.2341E-22"
+        iyy="2.3643E-06"
+        iyz="1.1221E-21"
+        izz="2.4665E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh7_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh7_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh7_joint"
+    type="continuous">
+    <origin
+      xyz="-0.090325 -0.125 0.0105"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh7_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="wh8_Link">
+    <inertial>
+      <origin
+        xyz="-5.9674E-16 -1.1519E-15 -0.015531"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="-3.8209E-22"
+        ixz="1.4565E-21"
+        iyy="2.8962E-06"
+        iyz="9.4776E-24"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh8_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh8_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh8_joint"
+    type="continuous">
+    <origin
+      xyz="-0.046146 -0.125 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh8_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="wh9_Link">
+    <inertial>
+      <origin
+        xyz="-5.7896E-16 -1.138E-15 -0.015531"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="-4.204E-22"
+        ixz="1.5299E-21"
+        iyy="2.8962E-06"
+        iyz="6.0999E-23"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh9_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh9_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh9_joint"
+    type="continuous">
+    <origin
+      xyz="-0.001146 -0.125 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh9_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="wh10_Link">
+    <inertial>
+      <origin
+        xyz="-5.8981E-16 -1.1519E-15 -0.015531"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="-3.8945E-22"
+        ixz="1.5279E-21"
+        iyy="2.8962E-06"
+        iyz="3.3173E-23"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh10_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh10_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh10_joint"
+    type="continuous">
+    <origin
+      xyz="0.043854 -0.125 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh10_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="wh11_Link">
+    <inertial>
+      <origin
+        xyz="-6.1062E-16 -1.1519E-15 -0.015531"
+        rpy="0 0 0" />
+      <mass
+        value="0.017275" />
+      <inertia
+        ixx="2.8962E-06"
+        ixy="-3.9034E-22"
+        ixz="1.5279E-21"
+        iyy="2.8962E-06"
+        iyz="1.4463E-23"
+        izz="2.481E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh11_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh11_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh11_joint"
+    type="continuous">
+    <origin
+      xyz="0.088854 -0.125 -0.016278"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh11_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="wh12_Link">
+    <inertial>
+      <origin
+        xyz="-7.7161E-15 4.885E-15 -0.012804"
+        rpy="0 0 0" />
+      <mass
+        value="0.020392" />
+      <inertia
+        ixx="1.6011E-06"
+        ixy="-8.2636E-19"
+        ixz="-3.19E-19"
+        iyy="1.6011E-06"
+        iyz="1.155E-18"
+        izz="2.8377E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh12_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/wh12_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wh12_joint"
+    type="continuous">
+    <origin
+      xyz="0.13217 -0.1248 0.0105"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wh12_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="imu_Link">
+    <inertial>
+      <origin
+        xyz="-0.0016587 0.0035463 0.001359"
+        rpy="0 0 0" />
+      <mass
+        value="0.053369" />
+      <inertia
+        ixx="3.5938E-05"
+        ixy="8.4855E-07"
+        ixz="-8.9893E-07"
+        iyy="1.9163E-05"
+        iyz="8.83E-07"
+        izz="5.2579E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/imu_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/imu_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="-0.062457 -0.0024843 0.10118"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="contorl_Link">
+    <inertial>
+      <origin
+        xyz="0.0035953 0.009045 -0.012657"
+        rpy="0 0 0" />
+      <mass
+        value="0.0015511" />
+      <inertia
+        ixx="1.5915E-08"
+        ixy="5.898E-27"
+        ixz="3.6179E-23"
+        iyy="1.5915E-08"
+        iyz="4.2409E-25"
+        izz="5.4092E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/contorl_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mid_vel/meshes/contorl_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="contorl_joint"
+    type="fixed">
+    <origin
+      xyz="-0.045863 -0.02051 0.071271"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="contorl_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo reference="base_link">
+    <material>Gazebo/Grey</material>
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+  </gazebo>
+
+  <gazebo reference="wh1_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh2_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh3_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh4_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh5_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh6_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="wh7_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh8_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh9_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh10_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh11_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="wh12_Link">
+    <mu1>2.0</mu1><mu2>1.0</mu2>
+    <kp>100000.0</kp><kd>10.0</kd>
+    <minDepth>0.001</minDepth><maxVel>0.1</maxVel>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="planar_move" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+      <odometryRate>50.0</odometryRate>
+      <publishOdomTF>true</publishOdomTF>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>ground_truth/state</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <update_rate>50</update_rate>
+      <joint_name>wh1_joint</joint_name>
+      <joint_name>wh2_joint</joint_name>
+      <joint_name>wh3_joint</joint_name>
+      <joint_name>wh4_joint</joint_name>
+      <joint_name>wh5_joint</joint_name>
+      <joint_name>wh6_joint</joint_name>
+      <joint_name>wh7_joint</joint_name>
+      <joint_name>wh8_joint</joint_name>
+      <joint_name>wh9_joint</joint_name>
+      <joint_name>wh10_joint</joint_name>
+      <joint_name>wh11_joint</joint_name>
+      <joint_name>wh12_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="imu_Link">
+    <gravity>true</gravity>
+    <sensor name="imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_Link</bodyName>
+        <updateRateHZ>50.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_Link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+</robot>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="amplitude"        default="0.6"/>
+  <arg name="wavelength"       default="5.0"/>
+  <arg name="lead_in"          default="1.5"/>
+  <arg name="path_length"      default="11.5"/>
+  <arg name="speed"            default="0.3"/>
+  <arg name="desired_distance" default="0.55"/>
+  <arg name="gui"              default="true"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused"       value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui"          value="$(arg gui)"/>
+  </include>
+
+  <group ns="vehicle_1">
+    <param name="tf_prefix" value="vehicle_1"/>
+    <param name="robot_description"
+           textfile="$(find first_vel01)/urdf/first_vel01.urdf"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher"
+          type="robot_state_publisher">
+      <param name="tf_prefix" value="vehicle_1"/>
+    </node>
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+          respawn="false" output="screen"
+          args="-urdf -model vehicle_1
+                -x 0.0 -y 0.0 -z 0.05
+                -param /vehicle_1/robot_description"/>
+  </group>
+
+  <group ns="vehicle_2">
+    <param name="tf_prefix" value="vehicle_2"/>
+    <param name="robot_description"
+           textfile="$(find mid_vel)/urdf/mid_vel.urdf"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher"
+          type="robot_state_publisher">
+      <param name="tf_prefix" value="vehicle_2"/>
+    </node>
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+          respawn="false" output="screen"
+          args="-urdf -model vehicle_2
+                -x -0.55 -y 0.0 -z 0.05
+                -param /vehicle_2/robot_description"/>
+  </group>
+
+  <group ns="vehicle_3">
+    <param name="tf_prefix" value="vehicle_3"/>
+    <param name="robot_description"
+           textfile="$(find first_vel01)/urdf/first_vel01_no_lidar.urdf"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher"
+          type="robot_state_publisher">
+      <param name="tf_prefix" value="vehicle_3"/>
+    </node>
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+          respawn="false" output="screen"
+          args="-urdf -model vehicle_3
+                -x -1.1 -y 0.0 -z 0.05
+                -param /vehicle_3/robot_description"/>
+  </group>
+
+  <node pkg="vehicle_all" type="obstacle_spawner.py" name="obstacle_spawner"
+        output="screen">
+    <param name="amplitude"   value="$(arg amplitude)"/>
+    <param name="wavelength"  value="$(arg wavelength)"/>
+    <param name="lead_in"     value="$(arg lead_in)"/>
+    <param name="path_length" value="$(arg path_length)"/>
+  </node>
+
+  <node pkg="vehicle_all" type="s_curve_pp_pid_driver.py"
+        name="pp_pid_driver" output="screen">
+    <param name="amplitude"        value="$(arg amplitude)"/>
+    <param name="wavelength"       value="$(arg wavelength)"/>
+    <param name="lead_in"          value="$(arg lead_in)"/>
+    <param name="path_length"      value="$(arg path_length)"/>
+    <param name="speed"            value="$(arg speed)"/>
+    <param name="desired_distance" value="$(arg desired_distance)"/>
+    <param name="startup_delay"    value="8.0"/>
+  </node>
+
+</launch>
