@@ -2,7 +2,7 @@
 <launch>
 
   <!-- 跟随参数 -->
-  <arg name="desired_distance" default="0.2" doc="期望保持的距离（米）"/>
+  <arg name="desired_distance" default="3.0" doc="期望保持的距离（米）"/>
   
   <!-- 车辆2跟随车辆1 -->
   <node name="vehicle_2_follower" pkg="vehicle_all" type="vehicle_follower.py" output="screen" respawn="true">
