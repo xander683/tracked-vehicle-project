@@ -56,7 +56,7 @@
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
           respawn="false" output="screen"
           args="-urdf -model vehicle_3
-                -x -1.1 -y 0.0 -z 0.05
+                -x -1.1 -y 0.0 -z 0.05 -Y 3.14159
                 -param /vehicle_3/robot_description"/>
   </group>
 

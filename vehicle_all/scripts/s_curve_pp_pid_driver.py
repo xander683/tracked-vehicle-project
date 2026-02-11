@@ -315,7 +315,7 @@ class SCurvePPPIDDriver:
             cmd3 = Twist()
             if v3_pose is not None and len(self.v2_traj) >= 2:
                 v3x, v3y, v3yaw = v3_pose
-                v3_v, v3_w = self._follower_pp_pid(
+                v3_v, v3_w = self._follower_pp_pid_reverse(
                     v3x, v3y, v3yaw,
                     self.v2_traj, self.v2_traj_s,
                     self.pid_v3, self.follower_lookahead)
@@ -371,6 +371,42 @@ class SCurvePPPIDDriver:
         omega = max(-2.0, min(2.0, omega))
 
         return v, omega
+
+    def _follower_pp_pid_reverse(self, fx, fy, fyaw, leader_traj, leader_traj_s,
+                                  pid_ctrl, lookahead):
+        effective_yaw = self._norm(fyaw + math.pi)
+
+        my_s = self._traj_nearest_s(leader_traj, fx, fy)
+
+        target_s = leader_traj_s - self.desired_dist
+
+        if target_s < 0:
+            return 0.0, 0.0
+
+        s_err = target_s - my_s
+
+        v_corr = pid_ctrl(s_err, 1.0 / self.hz)
+        v = self.speed + v_corr
+
+        carrot_s = my_s + lookahead
+        carrot_s = min(carrot_s, leader_traj_s)
+
+        carrot = self._traj_interp(leader_traj, carrot_s)
+        if carrot is None:
+            return 0.0, 0.0
+
+        omega = self._pure_pursuit(fx, fy, effective_yaw, carrot[0], carrot[1], max(v, 0.05))
+
+        dx = carrot[0] - fx
+        dy = carrot[1] - fy
+        alpha = abs(self._norm(math.atan2(dy, dx) - effective_yaw))
+        if alpha > 0.8:
+            v *= 0.5
+
+        v = max(0.05, min(0.8, v))
+        omega = max(-2.0, min(2.0, omega))
+
+        return -v, omega
 
 
 if __name__ == '__main__':
